@@ -1,0 +1,39 @@
+body {
+    background-color: #dddddd;
+}
+
+h1 {
+    color: #313131;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: normal;
+    font-size: 70px;
+    margin-left: 10vw;
+    margin-top: 5vh;
+}
+
+h3 {
+    color: #313131;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: normal;
+    font-size: 40px;
+    margin-left: 15vw;
+    margin-top: 3vh;
+    margin-bottom: 2vh;
+}
+
+input.textInput {
+    display: block;
+    background-color: #dddddd;
+    border:none;
+    margin-left: 15vw;
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    border-bottom: 1px solid #313131;
+    transition: border-bottom-width 0.1s ease-in-out,
+                border-bottom-color 0.5s ease-in-out;
+}
+
+input.textInput:focus {
+    outline: none;
+    border-bottom: 3px solid coral;
+}
