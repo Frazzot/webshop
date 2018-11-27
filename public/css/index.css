@@ -22,6 +22,7 @@ h3 {
 }
 
 input.textInput {
+    margin-top: 5px;
     display: block;
     background-color: #dddddd;
     border:none;
@@ -36,4 +37,22 @@ input.textInput {
 input.textInput:focus {
     outline: none;
     border-bottom: 3px solid coral;
+}
+
+button.confirm {
+    font-size: 14px;
+    color: #313131;
+    margin-left: 15vw;
+    margin-top: 20px;
+    width: 100px;
+    height: 40px;
+    border: 1px solid #313131;
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
+}
+
+.confirm:hover {
+    background-color: coral; 
+    color: white;
+    border: 0px;
 }
