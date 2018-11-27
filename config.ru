@@ -6,6 +6,7 @@ require 'bundler'
 # load all gems in Gemfile
 Bundler.require
 
+require_relative 'database/db'
 require_relative 'app'
 
 run App

@@ -1,3 +1,4 @@
+Database.clear
 class App < Sinatra::Base
 
     get '/' do
