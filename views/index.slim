@@ -1,9 +1,17 @@
 link rel="stylesheet" type="text/css" href="/css/index.css"
 header
     h1 Welcome to Webshop!
-    h3 Login
-    .login
-        form action="account/login" method="post"
-            input.textInput type="text" name="username" placeholder="username"
-            input.textInput type="password" name="password" placeholder="password"
-            button.confirm Login
+h3 Login
+.login
+    form action="account/login" method="post"
+        input.textInput type="text" name="username" placeholder="username"
+        input.textInput type="password" name="password" placeholder="password"
+        button.confirm Login
+h3 Create Account
+.createAccount
+    form action="account/login" method="post"
+        input.textInput type="text" name="username" placeholder="username"
+        input.textInput type="text" name="mail" placeholder="mail"
+        input.textInput type="password" name="password" placeholder="password"
+        input.textInput type="number" name="phone" placeholder="phone"
+        button.confirm Create
