@@ -3,15 +3,15 @@ header
     h1 Welcome to Webshop!
 h3 Login
 .login
-    form action="account/login" method="post"
+    form action="/account/login" method="post"
         input.textInput type="text" name="username" placeholder="username"
         input.textInput type="password" name="password" placeholder="password"
-        button.confirm Login
+        button.confirm type="submit" Login
 h3 Create Account
 .createAccount
-    form action="account/login" method="post"
+    form action="/account/new" method="post"
         input.textInput type="text" name="username" placeholder="username"
         input.textInput type="text" name="mail" placeholder="mail"
         input.textInput type="password" name="password" placeholder="password"
-        input.textInput type="number" name="phone" placeholder="phone"
-        button.confirm Create
+        input.textInput type="text" name="phone" placeholder="phone"
+        button.confirm type="submit" Create

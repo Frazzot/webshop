@@ -1,13 +1,11 @@
 class Database
 
-    @@db ||= SQLite3::Database.new("user_data.db")
+    @@db ||= SQLite3::Database.new("database/user_data.db")
     @@db.results_as_hash = true
 
     def self.execute(*args)
         @@db.execute(*args)
     end
-
-    #Skapa nya tables (nerifrån - upp)
 
     def self.clear()
 
@@ -39,4 +37,12 @@ class Database
         execute('CREATE TABLE orders (id INTEGER PRIMARY KEY AUTOINCREMENT,
                  date varchar(40))')
     end
+
+    def self.create_user(username, phone, mail, password)
+        execute('INSERT INTO users (username, phone, mail, password) VALUES (?, ?, ?, ?)', 
+        [username, phone, mail, password])
+    end
+
+    
+
 end
