@@ -38,4 +38,9 @@ class App < Sinatra::Base
         redirect back
     end
 
+    post '/account/logout' do
+        session.destroy
+        redirect '/'
+    end
+
 end
