@@ -8,5 +8,6 @@ Bundler.require
 
 require_relative 'database/db'
 require_relative 'app'
+require_relative 'models/user'
 
 run App
