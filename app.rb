@@ -1,6 +1,7 @@
 class App < Sinatra::Base
 
     enable :sessions
+    
     before do
         if session[:user_id]
             @current_user = Database.get_user(session[:user_id])
@@ -29,7 +30,6 @@ class App < Sinatra::Base
     end
 
     post '/account/login' do
-        p params
         user = Database.get_user(params['username'])
         hashed_pwd = BCrypt::Password.new(user.password)
         if hashed_pwd == params['password']
@@ -44,3 +44,7 @@ class App < Sinatra::Base
     end
 
 end
+
+#TODO: get for new pages and slim files + css
+#      category system with different pages etc (basically more content)
+#      add name on welcome page (index.slim)

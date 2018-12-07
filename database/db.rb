@@ -47,8 +47,6 @@ class Database
         argument = arg.to_i
         if argument == 0
             result = execute('SELECT * FROM users')
-            p result
-            p arg
             User.new(result[0])
         else
             User.new(execute('SELECT * FROM users WHERE id = ?', argument)[0])
