@@ -30,6 +30,7 @@ class App < Sinatra::Base
     end
 
     post '/account/login' do
+        p params
         user = Database.get_user(params['username'])
         hashed_pwd = BCrypt::Password.new(user.password)
         if hashed_pwd == params['password']

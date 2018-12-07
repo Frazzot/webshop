@@ -45,9 +45,10 @@ class Database
 
     def self.get_user(arg)
         argument = arg.to_i
+        p arg, argument
         if argument == 0
-            result = execute('SELECT * FROM users')
-            User.new(result[0])
+            result = execute('SELECT * FROM users WHERE username = ?', arg)[0]
+            User.new(result)
         else
             User.new(execute('SELECT * FROM users WHERE id = ?', argument)[0])
         end
