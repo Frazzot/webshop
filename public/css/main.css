@@ -56,3 +56,18 @@ button.confirm {
     color: white;
     border: 0px;
 }
+
+button.category {
+    color: #313131;
+    width: 100px;
+    height: 40px;
+    border: 1px solid #313131;
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
+}
+
+.category:hover {
+    background-color: coral; 
+    color: white;
+    border: 0px;
+}

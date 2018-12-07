@@ -43,6 +43,7 @@ class App < Sinatra::Base
         redirect '/'
     end
 
+
 end
 
 #TODO: get for new pages and slim files + css

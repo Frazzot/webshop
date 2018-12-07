@@ -21,4 +21,39 @@ button.confirm {
     font-size: 18px;
     width: 10vw;
     height: 7vh;
+    border-radius: 5px;
+}
+
+button.category {
+    margin-left: auto;
+    margin-right: auto;
+    margin: 10px;
+    margin-top: 0;
+    width: 10vw;
+    height: 7vh;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.categories {
+    background-color: #313131;
+    width: 45vw;
+    height: 10vh;
+    float: left;
+    margin-left: 10vw;
+    border-radius: 10px;
+}
+
+.shop {
+    background-color: #313131;
+    width: 45vw;
+    height: 60vh;
+    float: left;
+    margin-left: 10vw;
+    border-radius: 10px;
+    margin-top: 5vh;
 }
