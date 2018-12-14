@@ -43,14 +43,22 @@ class Database
         [username, phone, mail, password])
     end
 
-    def self.get_user(arg)
-        argument = arg.to_i
-        p arg, argument
-        if argument == 0
-            result = execute('SELECT * FROM users WHERE username = ?', arg)[0]
+    def self.get_user(identifier)
+        # Try to convert identifier to a numerical id
+        id = identifier.to_i
+        # If  this failed it will become 0, therefore it's a username, not an id
+        if id == 0
+            result = execute('SELECT * FROM users WHERE username = ?', identifier)[0]
             User.new(result)
         else
-            User.new(execute('SELECT * FROM users WHERE id = ?', argument)[0])
+            User.new(execute('SELECT * FROM users WHERE id = ?', id)[0])
+        end
+    end
+
+    def self.get_category(identifier)
+        id = identifier.to_i
+        if id == 0
+            result = execute('SELECT * FROM categories WHERE category = ?', identifier)[0]
         end
     end
 

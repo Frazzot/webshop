@@ -2,7 +2,6 @@ class User
     attr_reader :id, :username, :phone, :mail, :password
 
     def initialize(user_hash)
-        p user_hash
         @id = user_hash['id']
         @username = user_hash['username']
         @phone = user_hash['phone']
