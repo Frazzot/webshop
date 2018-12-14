@@ -30,7 +30,6 @@ class App < Sinatra::Base
     end
 
     post '/account/login' do
-        p params
         user = Database.get_user(params['username'])
         hashed_pwd = BCrypt::Password.new(user.password)
         if hashed_pwd == params['password']
@@ -39,14 +38,18 @@ class App < Sinatra::Base
         redirect back
     end
 
+    get '/account/cart' do
+        slim :cart
+    end 
+
     post '/account/logout' do
         session.destroy
         redirect '/'
     end
-
-
 end
 
 #TODO: get for new pages and slim files + css
 #      category system with different pages etc (basically more content)
-#      add name on welcome page (index.slim)
+#      add items to shop
+#      create system so that if the item is not in stock it will be shown as unavailable
+#      link items to cart so the item shows up in cart when it's added

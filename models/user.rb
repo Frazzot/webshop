@@ -11,7 +11,7 @@ class User
     end
 
     def self.null_user
-        User.new('id' => nil)
+        User.new('id' => nil, 'username' => "")
     end
    
     #def self.get(hash) 

@@ -8,14 +8,13 @@ html
         - if @current_user.id
             == yield
         - else
-            link rel="stylesheet" type="text/css" href="/css/login.css"
             header
                 h1 Welcome to Webshop!
             .login
                 form action="/account/login" method="post"
                     input.textInput type="text" name="username" placeholder="username"
                     input.textInput type="password" name="password" placeholder="password"
-                    button.confirm type="submit" Login
+                    button.formConfirm type="submit" Login
             h3 Create Account
             .createAccount
                 form action="/account/new" method="post"
@@ -23,4 +22,4 @@ html
                     input.textInput type="text" name="mail" placeholder="mail"
                     input.textInput type="password" name="password" placeholder="password"
                     input.textInput type="text" name="phone" placeholder="phone"
-                    button.confirm type="submit" Create
+                    button.formConfirm type="submit" Create

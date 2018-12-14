@@ -1,0 +1,10 @@
+.shop {
+    height: 75vh !important;
+    margin-top: 0 !important;
+}
+
+#items {
+    margin-left: 5vw;
+    margin-top: 3vh;
+    color: #ffffff;
+}

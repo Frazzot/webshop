@@ -39,7 +39,7 @@ input.textInput:focus {
     border-bottom: 3px solid coral;
 }
 
-button.confirm {
+button.formConfirm {
     font-size: 14px;
     color: #313131;
     margin-left: 15vw;
@@ -51,12 +51,6 @@ button.confirm {
     transition-duration: 0.4s;
 }
 
-.confirm:hover {
-    background-color: coral; 
-    color: white;
-    border: 0px;
-}
-
 button.category {
     color: #313131;
     width: 100px;
@@ -64,6 +58,12 @@ button.category {
     border: 1px solid #313131;
     -webkit-transition-duration: 0.4s; 
     transition-duration: 0.4s;
+}
+
+.formConfirm:hover {
+    background-color: coral; 
+    color: white;
+    border: 0px;
 }
 
 .category:hover {
