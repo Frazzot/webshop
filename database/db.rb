@@ -36,6 +36,18 @@ class Database
         execute('DROP TABLE IF EXISTS orders')
         execute('CREATE TABLE orders (id INTEGER PRIMARY KEY AUTOINCREMENT,
                  date varchar(40))')
+
+        execute('DROP TABLE IF EXISTS category_item_id')
+        execute('CREATE TABLE category_item_id (category_id INTEGER NOT NULL,
+                 item_id INTEGER NOT NULL,
+                 FOREIGN KEY(category_id) REFERENCES categories(id),
+                 FOREIGN KEY(item_id) REFERENCES items(id))')
+
+        execute('DROP TABLE IF EXISTS cart_item_id')
+        execute('CREATE TABLE cart_item_id (cart_id INTEGER NOT NULL,
+                 item_id INTEGER NOT NULL,
+                 FOREIGN KEY(cart_id) REFERENCES carts(id),
+                 FOREIGN KEY(item_id) REFERENCES items(id))')
     end
 
     def self.create_user(username, phone, mail, password)
@@ -59,6 +71,10 @@ class Database
         id = identifier.to_i
         if id == 0
             result = execute('SELECT * FROM categories WHERE category = ?', identifier)[0]
+            Category.new(result)
+        else
+            result = execute('SELECT * FROM categories WHERE id = ?', id[0])
+            Category.new(result)
         end
     end
 
