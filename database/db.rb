@@ -23,7 +23,9 @@ class Database
         execute('DROP TABLE IF EXISTS items')
         execute('CREATE TABLE items (category_id INTEGER,
                  price INTEGER,
-                 amount INTEGER)')
+                 amount INTEGER,
+                 name varchar(100) NOT NULL),
+                 image varchar(200)')
 
         execute('DROP TABLE IF EXISTS carts')
         execute('CREATE TABLE carts (id INTEGER PRIMARY KEY AUTOINCREMENT)')
@@ -77,5 +79,15 @@ class Database
             Category.new(result)
         end
     end
-
+    
+    def self.get_item(identifier)
+        id = identifier.to_i
+        if id == 0
+            result = execute('SELECT * FROM items WHERE id = ?', identifier)[0]
+            Items.new(result)
+        else
+            result = execute('SELECT * FROM items WHERE id = ?', id[0])
+            Items.new(result)
+        end
+    end
 end
