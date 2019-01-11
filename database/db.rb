@@ -24,8 +24,8 @@ class Database
         execute('CREATE TABLE items (category_id INTEGER,
                  price INTEGER,
                  amount INTEGER,
-                 name varchar(100) NOT NULL),
-                 image varchar(200)')
+                 name varchar(100) NOT NULL,
+                 image varchar(200))')
 
         execute('DROP TABLE IF EXISTS carts')
         execute('CREATE TABLE carts (id INTEGER PRIMARY KEY AUTOINCREMENT)')
@@ -50,6 +50,59 @@ class Database
                  item_id INTEGER NOT NULL,
                  FOREIGN KEY(cart_id) REFERENCES carts(id),
                  FOREIGN KEY(item_id) REFERENCES items(id))')
+    end
+
+    def self.clear_tables(tables)
+        if tables == "users"
+            execute('DROP TABLE IF EXISTS users')
+            execute('CREATE TABLE users (id INTEGER PRIMARY KEY AUTOINCREMENT,
+                     username varchar(100) NOT NULL,
+                     phone varchar(20) NOT NULL,
+                     mail varchar(100) NOT NULL,
+                     password varchar(100) NOT NUL)')
+
+        elsif tables == "categories"
+            execute('DROP TABLES IF EXISTS categories')
+            execute('CREATE TABLE categories (id INTEGER PRIMARY KEY AUTOINCREMENT,
+                     name varchar(100) NOT NULL)')
+            
+        elsif tables == "items"
+            execute('DROP TABLE IF EXISTS items')
+            execute('CREATE TABLE items (category_id INTEGER,
+                     price INTEGER,
+                     amount INTEGER,
+                     name varchar(100) NOT NULL,
+                     image varchar(200))')
+
+        elsif tables == "carts"
+            execute('DROP TABLE IF EXISTS carts')
+            execute('CREATE TABLE carts (id INTEGER PRIMARY KEY AUTOINCREMENT)')
+
+        elsif tables == "order_lines"
+            execute('DROP TABLE IF EXISTS order_lines')
+            execute('CREATE TABLE order_lines (amount INTEGER,
+                     name varchar(40),
+                     price varchar(40))')
+        
+        elsif tables == "orders"
+            execute('DROP TABLE IF EXISTS orders')
+            execute('CREATE TABLE orders (id INTEGER PRIMARY KEY AUTOINCREMENT,
+                     date varchar(40))')
+
+        elsif tables == "category_item_id"
+            execute('DROP TABLE IF EXISTS category_item_id')
+            execute('CREATE TABLE category_item_id (category_id INTEGER NOT NULL,
+                     item_id INTEGER NOT NULL,
+                     FOREIGN KEY(category_id) REFERENCES categories(id),
+                     FOREGIN KEY(item_id) REFERENCES items(id))')
+        
+        elsif tables == "cart_item_id"
+            execute('DROP TABLE IF EXISTS cart_item_id')
+            execute('CREATE TABLE cart_item_id (cart_id INTEGER NOT NULL,
+                     item_id INTEGER NOT NULL,
+                     FOREIGN KEY(cart_id) REFERENCES carts(id),
+                     FOREIGN KEY(item_id) REFERENCES items(id))')
+        end
     end
 
     def self.create_user(username, phone, mail, password)

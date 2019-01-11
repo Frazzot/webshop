@@ -66,3 +66,14 @@ a {
     border-radius: 10px;
     margin-top: 5vh;
 }
+
+.item {
+    background-color: coral; 
+    width: 10vw;
+    height: 30vh;
+    border-radius: 5px;
+    margin-left: 3.5vw;
+    margin-top: 15vh;
+    display: inline-block;
+}
+

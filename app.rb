@@ -1,3 +1,4 @@
+Database.clear_tables("items")
 class App < Sinatra::Base
 
     enable :sessions
@@ -53,3 +54,4 @@ end
 #      add items to shop
 #      create system so that if the item is not in stock it will be shown as unavailable
 #      link items to cart so the item shows up in cart when it's added
+#      Find categories in DB for the item table
