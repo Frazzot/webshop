@@ -94,7 +94,7 @@ class Database
             execute('CREATE TABLE category_item_id (category_id INTEGER NOT NULL,
                      item_id INTEGER NOT NULL,
                      FOREIGN KEY(category_id) REFERENCES categories(id),
-                     FOREGIN KEY(item_id) REFERENCES items(id))')
+                     FOREIGN KEY(item_id) REFERENCES items(id))')
         
         elsif tables == "cart_item_id"
             execute('DROP TABLE IF EXISTS cart_item_id')

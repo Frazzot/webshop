@@ -1,4 +1,4 @@
-Database.clear_tables("items")
+Database.clear_tables("category_item_id")
 class App < Sinatra::Base
 
     enable :sessions
