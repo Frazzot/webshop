@@ -1,4 +1,3 @@
-Database.clear_tables("category_item_id")
 class App < Sinatra::Base
 
     enable :sessions
@@ -17,6 +16,11 @@ class App < Sinatra::Base
 
     get '/account/login' do
         slim :frontPage
+    end
+
+    get '/account/category/:category_name' do
+        @category_name = Database.get_category(params["category_name"])
+        slim :categories
     end
 
     post '/account/new' do
@@ -49,7 +53,7 @@ class App < Sinatra::Base
     end
 end
 
-#TODO: get for new pages and slim files + css
+#TODO
 #      category system with different pages etc (basically more content)
 #      add items to shop
 #      create system so that if the item is not in stock it will be shown as unavailable

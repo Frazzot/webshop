@@ -6,3 +6,5 @@ class Category
        @name = user_hash['name']
     end
 end
+
+

@@ -1,9 +1,10 @@
+gem 'bundler', "=2.0.1"
 require 'bundler'
 Bundler.require
 
 #rake run
 task :run do
-  sh 'bundle exec rerun --no-notify --ignore "*.{slim,js,css}" "rackup --host 0.0.0.0"'
+    sh 'bundle _2.0.1_  exec rerun --no-notify --ignore "*.{slim,js,css}" "rackup --host 0.0.0.0"'
 end
 
 #rake debug

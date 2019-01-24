@@ -125,7 +125,7 @@ class Database
     def self.get_category(identifier)
         id = identifier.to_i
         if id == 0
-            result = execute('SELECT * FROM categories WHERE category = ?', identifier)[0]
+            result = execute('SELECT * FROM categories WHERE name = ?', identifier)[0]
             Category.new(result)
         else
             result = execute('SELECT * FROM categories WHERE id = ?', id[0])
