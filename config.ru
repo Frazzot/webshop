@@ -10,4 +10,5 @@ require_relative 'database/db'
 require_relative 'app'
 require_relative 'models/user'
 require_relative 'models/category.rb'
+
 run App

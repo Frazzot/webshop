@@ -21,7 +21,7 @@ class Database
                  name varchar(100) NOT NULL)')
 
         execute('DROP TABLE IF EXISTS items')
-        execute('CREATE TABLE items (category_id INTEGER,
+        execute('CREATE TABLE items (id INTEGER PRIMARY KEY AUTOINCREMENT),
                  price INTEGER,
                  amount INTEGER,
                  name varchar(100) NOT NULL,
@@ -59,20 +59,19 @@ class Database
                      username varchar(100) NOT NULL,
                      phone varchar(20) NOT NULL,
                      mail varchar(100) NOT NULL,
-                     password varchar(100) NOT NUL)')
+                     password varchar(100) NOT NULL)')
 
         elsif tables == "categories"
             execute('DROP TABLES IF EXISTS categories')
             execute('CREATE TABLE categories (id INTEGER PRIMARY KEY AUTOINCREMENT,
                      name varchar(100) NOT NULL)')
-            
         elsif tables == "items"
-            execute('DROP TABLE IF EXISTS items')
-            execute('CREATE TABLE items (category_id INTEGER,
-                     price INTEGER,
-                     amount INTEGER,
-                     name varchar(100) NOT NULL,
-                     image varchar(200))')
+           execute('DROP TABLE IF EXISTS items')
+           execute('CREATE TABLE items (id INTEGER PRIMARY KEY AUTOINCREMENT,
+	                price INTEGER,
+	                amount INTEGER,
+	                name varchar (100) NOT NULL,
+                	image varchar (200))')
 
         elsif tables == "carts"
             execute('DROP TABLE IF EXISTS carts')
