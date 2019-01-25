@@ -20,6 +20,7 @@ class App < Sinatra::Base
 
     get '/account/category/:category_name' do
         @category_name = Database.get_category(params["category_name"])
+        #TODO: Get categories for the correct route and show items  
         slim :categories
     end
 
@@ -54,8 +55,5 @@ class App < Sinatra::Base
 end
 
 #TODO
-#      category system with different pages etc (basically more content)
-#      add items to shop
 #      create system so that if the item is not in stock it will be shown as unavailable
 #      link items to cart so the item shows up in cart when it's added
-#      Find categories in DB for the item table
