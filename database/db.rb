@@ -142,4 +142,17 @@ class Database
             Items.new(result)
         end
     end
+    
+    def self.get_item_by_category(identifier)
+        # check every item in item table to sort in the correct category
+        category1 = execute('select * from items
+                            join category_item_id on items.id = category_item_id.item_id
+                            where category_item_id.category_id = 1') 
+        category2 = execute('select * from items
+                            join category_item_id on items.id = category_item_id.item_id
+                            where category_item_id.category_id = 2')
+        catecory3 = execute('select * from items
+                            join category_item_id on items.id = category_item_id.item_id
+                            where category_item_id.category_id = 3')
+    end
 end
