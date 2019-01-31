@@ -20,7 +20,8 @@ class App < Sinatra::Base
 
     get '/account/category/:category_name' do
         @category_name = Database.get_category(params["category_name"])
-        #TODO: Get categories for the correct route and show items  
+        @items = Database.get_item_by_category(@category_name.name)
+        ap @items
         slim :categories
     end
 

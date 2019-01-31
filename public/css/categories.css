@@ -1,0 +1,21 @@
+.game {
+    width: 15vw;
+    display: inline-block;
+
+}
+
+img {
+    width: 10vw;
+    height: 25vh;
+    margin-left: 2.5vw;
+}
+
+p {
+    text-align: center;
+    color: #dddddd;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: normal;
+    font-size: 20px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}

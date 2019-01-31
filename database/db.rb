@@ -145,15 +145,15 @@ class Database
     
     def self.get_item_by_category(category)
         # check every item in item table to sort in the correct category
-        if category == "category1"
+        if category == "action"
             category1 = execute('select * from items
                                 join category_item_id on items.id = category_item_id.item_id
                                 where category_item_id.category_id = 1') 
-        elsif category == "category2"
+        elsif category == "puzzle"
             category2 = execute('select * from items
                                 join category_item_id on items.id = category_item_id.item_id
                                 where category_item_id.category_id = 2')
-        elsif category == "category3"
+        elsif category == "adventure"
             catecory3 = execute('select * from items
                                 join category_item_id on items.id = category_item_id.item_id
                                 where category_item_id.category_id = 3')

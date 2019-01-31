@@ -1,3 +1,4 @@
+link rel="stylesheet" href="/css/categories.css"
 link rel="stylesheet" href="/css/cart.css"
 link rel="stylesheet" href="/css/index.css"
 
@@ -10,4 +11,9 @@ h1 =@category_name.name.capitalize!
         form action="/account/logout" method="post"
             button.confirm Logout
 .shop
-    h3#items Items
+    - for game in @items 
+        div.game   
+            p =game["name"]
+            img src="/img/#{game["image"]}"
+            p =game["price"]
+        
