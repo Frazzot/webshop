@@ -58,3 +58,5 @@ end
 #TODO
 #      create system so that if the item is not in stock it will be shown as unavailable
 #      link items to cart so the item shows up in cart when it's added
+#      set 3 random games at the frontpage
+#      add "kr" after price

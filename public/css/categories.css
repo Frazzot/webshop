@@ -1,7 +1,8 @@
 .game {
     width: 15vw;
     display: inline-block;
-
+    margin-top: 2vh;
+    margin-bottom: 2vh;
 }
 
 img {

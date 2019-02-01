@@ -1,6 +1,7 @@
 .shop {
-    height: 75vh !important;
+    height: auto !important;
     margin-top: 0 !important;
+    margin-bottom: 5vh;
 }
 
 #items {
