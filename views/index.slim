@@ -1,4 +1,5 @@
 link rel="stylesheet" type="text/css" href="/css/index.css"
+link rel="stylesheet" href="/css/categories.css"
 
 h1 ="Welcome back " + @current_user.username + "!"
 .menu
@@ -16,6 +17,9 @@ h1 ="Welcome back " + @current_user.username + "!"
         a href="/account/category/adventure"
             button.category Adventure
 .shop
-    .item    
-    .item
-    .item
+    h3#shop Todays offers!
+    - for game in @frontpage_items
+        div.game
+            p =game["name"]
+            img src="/img/#{game["image"]}"
+            p ="#{game["price"]} kr"

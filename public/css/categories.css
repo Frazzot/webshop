@@ -20,3 +20,9 @@ p {
     margin-bottom: 5px;
     margin-top: 5px;
 }
+
+h3#shop {
+    color: #dddddd;
+    margin: 5vh;
+    margin-bottom: 2vh;
+}

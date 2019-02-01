@@ -11,6 +11,8 @@ class App < Sinatra::Base
     end
 
     get '/' do
+        @frontpage_items = Database.get_top_amount_items()
+        ap @frontpage_items
         slim :index
     end
 
@@ -21,7 +23,6 @@ class App < Sinatra::Base
     get '/account/category/:category_name' do
         @category_name = Database.get_category(params["category_name"])
         @items = Database.get_item_by_category(@category_name.name)
-        ap @items
         slim :categories
     end
 
@@ -59,4 +60,4 @@ end
 #      create system so that if the item is not in stock it will be shown as unavailable
 #      link items to cart so the item shows up in cart when it's added
 #      set 3 random games at the frontpage
-#      add "kr" after price
+#      error message at login if password or username is incorrect

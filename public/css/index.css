@@ -60,7 +60,7 @@ a {
 .shop {
     background-color: #313131;
     width: 45vw;
-    height: 60vh;
+    display: flex;
     float: left;
     margin-left: 10vw;
     border-radius: 10px;

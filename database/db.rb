@@ -159,4 +159,8 @@ class Database
                                 where category_item_id.category_id = 3')
         end
     end
+    
+    def self.get_top_amount_items()
+        execute('SELECT * FROM items ORDER BY amount DESC LIMIT 3')
+    end
 end
