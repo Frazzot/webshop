@@ -13,7 +13,7 @@ h1 =@category_name.name.capitalize!
 .shop
     - for game in @items 
         div.game   
-            p =game["name"]
-            img src="/img/#{game["image"]}"
-            p ="#{game["price"]} kr"
+            p =game.name
+            img src="/img/#{game.image}"
+            p ="#{game.price} kr"
         

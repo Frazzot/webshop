@@ -9,6 +9,7 @@ Bundler.require
 require_relative 'database/db'
 require_relative 'app'
 require_relative 'models/user'
-require_relative 'models/category.rb'
+require_relative 'models/category'
+require_relative 'models/item'
 
 run App

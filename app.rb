@@ -12,6 +12,9 @@ class App < Sinatra::Base
 
     get '/' do
         @frontpage_items = Database.get_top_amount_items()
+        @frontpage_items.map! do |row|
+            Item.new(row)
+        end
         ap @frontpage_items
         slim :index
     end
@@ -23,6 +26,10 @@ class App < Sinatra::Base
     get '/account/category/:category_name' do
         @category_name = Database.get_category(params["category_name"])
         @items = Database.get_item_by_category(@category_name.name)
+        @items.map! do |row|
+            Item.new(row)
+        end
+
         slim :categories
     end
 
@@ -54,10 +61,13 @@ class App < Sinatra::Base
         session.destroy
         redirect '/'
     end
+
+    post '/account/addToCart/:id' do
+        
+    end
 end
 
 #TODO
 #      create system so that if the item is not in stock it will be shown as unavailable
-#      link items to cart so the item shows up in cart when it's added
-#      set 3 random games at the frontpage
 #      error message at login if password or username is incorrect
+#      Move map to a separate function 

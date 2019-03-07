@@ -7,6 +7,11 @@ class Database
         @@db.execute(*args)
     end
 
+    def self.db=(database)
+        @@db = database
+        @@db.results_as_hash = true
+    end
+
     def self.clear()
 
         execute('DROP TABLE IF EXISTS users')
@@ -21,7 +26,7 @@ class Database
                  name varchar(100) NOT NULL)')
 
         execute('DROP TABLE IF EXISTS items')
-        execute('CREATE TABLE items (id INTEGER PRIMARY KEY AUTOINCREMENT),
+        execute('CREATE TABLE items (id INTEGER PRIMARY KEY AUTOINCREMENT,
                  price INTEGER,
                  amount INTEGER,
                  name varchar(100) NOT NULL,
@@ -31,7 +36,7 @@ class Database
         execute('CREATE TABLE carts (id INTEGER PRIMARY KEY AUTOINCREMENT)')
 
         execute('DROP TABLE IF EXISTS order_lines')
-        execute('CREATE TABLE order_lines (amount INTEGER
+        execute('CREATE TABLE order_lines (amount INTEGER,
                  name varchar(40),
                  price varchar(40))')
 

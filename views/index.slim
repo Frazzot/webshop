@@ -1,5 +1,6 @@
 link rel="stylesheet" type="text/css" href="/css/index.css"
 link rel="stylesheet" href="/css/categories.css"
+script src="/js/main.js"
 
 h1 ="Welcome back " + @current_user.username + "!"
 .menu
@@ -19,7 +20,7 @@ h1 ="Welcome back " + @current_user.username + "!"
 .shop
     h3#shop Todays offers!
     - for game in @frontpage_items
-        div.game
-            p =game["name"]
-            img src="/img/#{game["image"]}"
-            p ="#{game["price"]} kr"
+      div.game onclick="addToCart(#{game.id})" 
+            p =game.name
+            img src="/img/#{game.image}"
+            p ="#{game.price} kr"

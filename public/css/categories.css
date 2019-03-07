@@ -25,4 +25,5 @@ h3#shop {
     color: #dddddd;
     margin: 5vh;
     margin-bottom: 2vh;
+    display: block;
 }

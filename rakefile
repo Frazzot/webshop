@@ -11,3 +11,18 @@ end
 task :debug do
 	sh 'rackup'
 end
+
+task :test do
+    sh 'rspec'
+end
+
+begin
+    require 'rspec/core/rake_test'
+    
+    RSpec::Core::RakeTask.new :test do |t|
+        t.pattern = ['spec/*_spec.rb']
+    end
+
+rescue LoadError
+
+end
