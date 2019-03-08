@@ -5,10 +5,10 @@ feature 'Entering the webpage' do
         visit '/'
         expect(page).to have_content 'Welcome to Game shop!'
         within '#registerForm' do
-            fill_in 'username', with: 'rspecUser'
-            fill_in 'mail',     with: 'rspec@Mail.com'
-            fill_in 'password', with: 'rspecPass'
-            fill_in 'phone',    with: '0000'
+            fill_in 'username', with: @rspec_user
+            fill_in 'mail',     with: @rspec_mail
+            fill_in 'password', with: @rspec_pass
+            fill_in 'phone',    with: @rspec_phone
         end
         click_button 'Create'
     end

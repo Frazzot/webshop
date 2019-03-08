@@ -1,7 +1,9 @@
+require_relative 'db'
+
 class Helper
 
     @rspec_user  = 'rspec_user'
-    @rspec_mail  = 'rspec_mail'
+    @rspec_mail  = 'rspec_mail@mail.com'
     @rspec_pass  = 'rspec_pass'
     @rspec_phone = '0000'
 
@@ -10,7 +12,7 @@ class Helper
     end
 
     def self.rspec_mail
-        @rspec_mail = 'rspec_mail'
+        @rspec_mail = 'rspec_mail@mail.com'
     end
 
     def self.rspec_pass
@@ -20,6 +22,14 @@ class Helper
     def self.rspec_phone
         @rspec_phone = 'rspec_phone'
     end
-
-    def
+    
+    def populate_users
+        Database.create_user('rspec_user_1', '10000', 'rspec_mail_1@mail.com', 'rspec_pass_1')         
+        Database.create_user('rspec_user_2', '20000', 'rspec_mail_2@mail.com', 'rspec_pass_2')         
+        Database.create_user('rspec_user_3', '30000', 'rspec_mail_3@mail.com', 'rspec_pass_3')         
+        Database.create_user('rspec_user_4', '40000', 'rspec_mail_4@mail.com', 'rspec_pass_4')         
+        Database.create_user('rspec_user_5', '50000', 'rspec_mail_5@mail.com', 'rspec_pass_5')         
+        Database.create_user('rspec_user_6', '60000', 'rspec_mail_6@mail.com', 'rspec_pass_6')         
+        Database.create_user('rspec_user_7', '70000', 'rspec_mail_7@mail.com', 'rspec_pass_7')         
+    end
 end
