@@ -13,3 +13,4 @@ feature 'Entering the webpage' do
         click_button 'Create'
     end
 end
+        
