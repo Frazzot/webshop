@@ -1,10 +1,6 @@
-require_relative 'db' 
-class Helper
+require_relative '../database/db' 
 
-    @rspec_user  = 'rspec_user'
-    @rspec_mail  = 'rspec_mail@mail.com'
-    @rspec_pass  = 'rspec_pass'
-    @rspec_phone = '0000'
+class Helper
 
     def self.rspec_user
         @rspec_user = 'rspec_user'
