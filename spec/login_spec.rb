@@ -23,4 +23,3 @@ feature 'Entering the webpage' do
         click_button 'Login'
     end
 end
-        

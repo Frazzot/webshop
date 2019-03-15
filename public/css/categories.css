@@ -27,3 +27,8 @@ h3#shop {
     margin-bottom: 2vh;
     display: block;
 }
+
+.cartButton {
+    margin-left: 2.5vw !important;
+}
+

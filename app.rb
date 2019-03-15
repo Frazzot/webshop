@@ -15,7 +15,7 @@ class App < Sinatra::Base
         @frontpage_items.map! do |row|
             Item.new(row)
         end
-        ap @frontpage_items
+        #ap @frontpage_items
         slim :index
     end
 
@@ -29,7 +29,6 @@ class App < Sinatra::Base
         @items.map! do |row|
             Item.new(row)
         end
-
         slim :categories
     end
 
@@ -54,6 +53,9 @@ class App < Sinatra::Base
     end
 
     get '/account/cart' do
+        @carts = Database.get_cart(@current_user.id)
+        @cart_items = Database.get_items_in_cart(@current_user.id)
+        ap @cart_items
         slim :cart
     end 
 
@@ -63,11 +65,14 @@ class App < Sinatra::Base
     end
 
     post '/account/addToCart/:id' do
-        
+        game_id = params['id'].to_i
+        Database.add_to_cart(@current_user.id, game_id)
     end
+     
 end
 
 #TODO
+#      Add the absility to add item to cart
 #      create system so that if the item is not in stock it will be shown as unavailable
 #      error message at login if password or username is incorrect
 #      Move map to a separate function 

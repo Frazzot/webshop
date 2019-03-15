@@ -33,7 +33,10 @@ class Database
                  image varchar(200))')
 
         execute('DROP TABLE IF EXISTS carts')
-        execute('CREATE TABLE carts (id INTEGER PRIMARY KEY AUTOINCREMENT)')
+        execute('CREATE TABLE carts (user_id INTEGER NOT NULL, 
+                 item_id INTEGER NOT NULL,
+                 FOREIGN KEY(user_id) REFERENCES users(id),
+                 FOREIGN KEY(item_id) REFERENCES items(id))')
 
         execute('DROP TABLE IF EXISTS order_lines')
         execute('CREATE TABLE order_lines (amount INTEGER,
@@ -70,6 +73,7 @@ class Database
             execute('DROP TABLES IF EXISTS categories')
             execute('CREATE TABLE categories (id INTEGER PRIMARY KEY AUTOINCREMENT,
                      name varchar(100) NOT NULL)')
+
         elsif tables == "items"
            execute('DROP TABLE IF EXISTS items')
            execute('CREATE TABLE items (id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -80,8 +84,11 @@ class Database
 
         elsif tables == "carts"
             execute('DROP TABLE IF EXISTS carts')
-            execute('CREATE TABLE carts (id INTEGER PRIMARY KEY AUTOINCREMENT)')
-
+            execute('CREATE TABLE carts (user_id INTEGER NOT NULL, 
+                     item_id INTEGER NOT NULL,
+                     FOREIGN KEY(user_id) REFERENCES users(id),
+                     FOREIGN KEY(item_id) REFERENCES items(id))')
+        
         elsif tables == "order_lines"
             execute('DROP TABLE IF EXISTS order_lines')
             execute('CREATE TABLE order_lines (amount INTEGER,
@@ -151,21 +158,35 @@ class Database
     def self.get_item_by_category(category)
         # check every item in item table to sort in the correct category
         if category == "action"
-            category1 = execute('select * from items
-                                join category_item_id on items.id = category_item_id.item_id
-                                where category_item_id.category_id = 1') 
+            category1 = execute('SELECT * FROM items
+                                JOIN category_item_id ON items.id = category_item_id.item_id
+                                WHERE category_item_id.category_id = 1') 
         elsif category == "puzzle"
-            category2 = execute('select * from items
-                                join category_item_id on items.id = category_item_id.item_id
-                                where category_item_id.category_id = 2')
+            category2 = execute('SELECT * FROM items
+                                JOIN category_item_id ON items.id = category_item_id.item_id
+                                WHERE category_item_id.category_id = 2')
         elsif category == "adventure"
-            catecory3 = execute('select * from items
-                                join category_item_id on items.id = category_item_id.item_id
-                                where category_item_id.category_id = 3')
+            category3 = execute('SELECT * FROM items
+                                JOIN category_item_id ON items.id = category_item_id.item_id
+                                WHERE category_item_id.category_id = 3')
         end
     end
     
     def self.get_top_amount_items()
         execute('SELECT * FROM items ORDER BY amount DESC LIMIT 3')
+    end
+    
+    def self.add_to_cart(user_id, game_id)
+        execute('INSERT INTO carts (user_id, item_id) VALUES (?,?)', [user_id, game_id])
+    end
+
+    def self.get_cart(user_id)
+        execute('SELECT * FROM carts WHERE user_id = ?', [user_id])
+    end
+ 
+    def self.get_items_in_cart(user_id)
+        execute('SELECT * FROM items
+                JOIN carts ON items.id = carts.item_id
+                WHERE carts.user_id = (?)', [user_id])
     end
 end

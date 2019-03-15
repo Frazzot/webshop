@@ -1,6 +1,7 @@
 link rel="stylesheet" href="/css/categories.css"
 link rel="stylesheet" href="/css/cart.css"
 link rel="stylesheet" href="/css/index.css"
+script src="/js/main.js"
 
 h1 =@category_name.name.capitalize!
 
@@ -16,4 +17,4 @@ h1 =@category_name.name.capitalize!
             p =game.name
             img src="/img/#{game.image}"
             p ="#{game.price} kr"
-        
+            button class="category cartButton" onclick="addToCart(#{game.id})" Add to Cart

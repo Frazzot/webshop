@@ -11,3 +11,5 @@ h1 Cart
             button.confirm Logout
 .shop
     h3#items Items
+    - for item in @cart_items
+      p =item['name']
