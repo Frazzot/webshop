@@ -7,5 +7,29 @@
 #items {
     margin-left: 5vw;
     margin-top: 3vh;
+    margin-bottom: 5vh;
     color: #ffffff;
+}
+
+p {
+    display: inline-block;
+    text-align: left !important;
+    color: #dddddd;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: normal;
+    font-size: 20px;
+    margin-left: 5vw;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.price {
+    float: right;
+    margin-right: 5vw;
+}
+
+.separator {
+    height: 1px;
+    width: 100%;
+    background-color: #dddddd;
 }

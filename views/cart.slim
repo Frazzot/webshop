@@ -11,5 +11,8 @@ h1 Cart
             button.confirm Logout
 .shop
     h3#items Items
+    div.separator
     - for item in @cart_items
       p =item['name']
+      p class="price" ="#{item['price']} kr"
+      div.separator
