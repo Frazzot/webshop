@@ -12,7 +12,10 @@ h1 Cart
 .shop
     h3#items Items
     div.separator
+    - if @cart_items.length == 0;
+        p Looks empty here!
     - for item in @cart_items
-      p =item['name']
-      p class="price" ="#{item['price']} kr"
-      div.separator
+        p =item['name']
+        p class="price" ="#{item['price']} kr"
+        div.separator
+    - ap @cart_items
