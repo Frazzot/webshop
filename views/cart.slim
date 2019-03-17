@@ -9,13 +9,16 @@ h1 Cart
             button.confirm Back
         form action="/account/logout" method="post"
             button.confirm Logout
+        button.confirm Clear Cart
+        button.confirm Checkout
 .shop
     h3#items Items
     div.separator
     - if @cart_items.length == 0;
         p Looks empty here!
-    - for item in @cart_items
-        p =item['name']
-        p class="price" ="#{item['price']} kr"
+    - for item in @cart_hash.keys
+        p =item
+        p class="amount" =@cart_hash[item]
+        p class="price" ="#{@price_hash[item]} kr"
         div.separator
-    - ap @cart_items
+        - ap @cart_hash

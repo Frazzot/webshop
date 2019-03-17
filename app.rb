@@ -55,6 +55,14 @@ class App < Sinatra::Base
     get '/account/cart' do
         @carts = Database.get_cart(@current_user.id)
         @cart_items = Database.get_items_in_cart(@current_user.id)
+
+        # freq hash games in cart
+        @cart_hash = Hash.new(0)
+        @price_hash = Hash.new
+        @cart_items.each do |item| 
+            @cart_hash[item["name"]] += 1
+            @price_hash[item["name"]] = item["price"]
+        end
         slim :cart
     end 
 
@@ -71,9 +79,8 @@ class App < Sinatra::Base
 end
 
 #TODO
-#      Add text if cart is empty
-#      Add buttons to remove item from cart
-#      Collect duplicates of items in one line in cart
-#      create system so that if the item is not in stock it will be shown as unavailable
-#      error message at login if password or username is incorrect
-#      Move map to a separate function 
+#   add + and - near the amount so the user can remove and add separate items from the cart
+#   Add buttons to clear the cart
+#   create system so that if the item is not in stock it will be shown as unavailable
+#   error message at login if password or username is incorrect
+#   Move map to a separate function 

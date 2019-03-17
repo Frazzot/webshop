@@ -23,9 +23,14 @@ p {
     margin-top: 20px;
 }
 
-.price {
+.amount {
     float: right;
     margin-right: 5vw;
+}
+
+.price {
+    float: right;
+    font-weight: bold;
 }
 
 .separator {
@@ -33,3 +38,4 @@ p {
     width: 100%;
     background-color: #dddddd;
 }
+
