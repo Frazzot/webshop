@@ -189,4 +189,16 @@ class Database
                 JOIN carts ON items.id = carts.item_id
                 WHERE carts.user_id = (?)', [user_id])
     end
+
+    # add support for separate items
+    def self.clear_cart_by_id(user_id, item_id)
+    end
+
+    def self.clear_cart(user_id)
+        execute('DROP TABLE IF EXISTS carts')
+        execute('CREATE TABLE carts (user_id INTEGER NOT NULL, 
+                 item_id INTEGER NOT NULL,
+                 FOREIGN KEY(user_id) REFERENCES users(id),
+                 FOREIGN KEY(item_id) REFERENCES items(id))')
+    end
 end

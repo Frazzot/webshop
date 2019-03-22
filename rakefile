@@ -13,7 +13,7 @@ task :debug do
 end
 
 task :test do
-    sh 'rspec'
+    sh 'rspec --format documentation'
 end
 
 begin
