@@ -16,9 +16,9 @@ h1 Cart
     div.separator
     - if @cart_items.length == 0;
         p Looks empty here!
-    - for item in @cart_hash.keys
+    - for item in @cart_amount_hash.keys
         p =item
-        p class="amount" =@cart_hash[item]
+        p class="amount" =@cart_amount_hash[item]
         p class="price" ="#{@price_hash[item]} kr"
         div.separator
-        - ap @cart_hash
+    p class="price" id="total" ="Total: #{@sum} kr"  

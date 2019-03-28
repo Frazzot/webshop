@@ -187,7 +187,7 @@ class Database
     def self.get_items_in_cart(user_id)
         execute('SELECT * FROM items
                 JOIN carts ON items.id = carts.item_id
-                WHERE carts.user_id = (?)', [user_id])
+                WHERE carts.user_id = ?', user_id)
     end
 
     # add support for separate items
@@ -200,5 +200,15 @@ class Database
                  item_id INTEGER NOT NULL,
                  FOREIGN KEY(user_id) REFERENCES users(id),
                  FOREIGN KEY(item_id) REFERENCES items(id))')
+    end
+    
+    def self.sum_cart_value(amount, price)
+        sum = 0
+        zipped = amount.values.zip(price.values)
+        zipped.each do |item|
+            sum += item[0] * item[1]
+            # change amount, amount from cart_items stands for the total amount of items not the ones in a cart
+        end
+        sum
     end
 end

@@ -57,12 +57,13 @@ class App < Sinatra::Base
         @cart_items = Database.get_items_in_cart(@current_user.id)
 
         # freq hash games in cart
-        @cart_hash = Hash.new(0)
+        @cart_amount_hash = Hash.new(0)
         @price_hash = Hash.new
         @cart_items.each do |item| 
-            @cart_hash[item["name"]] += 1
+            @cart_amount_hash[item["name"]] += 1
             @price_hash[item["name"]] = item["price"]
         end
+        @sum = Database.sum_cart_value(@cart_amount_hash, @price_hash)
         slim :cart
     end 
 

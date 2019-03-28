@@ -11,6 +11,10 @@
     color: #ffffff;
 }
 
+#total {
+    margin-right: 5vw;
+}
+
 p {
     display: inline-block;
     text-align: left !important;
