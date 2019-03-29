@@ -19,4 +19,12 @@ feature 'Shopping' do
             click_button('Add to Cart')
         end
     end
+
+    scenario 'Clear cart' do
+        visit '/account/cart'
+        expect(page).to have_content 'Cart'
+        within '.listMenu' do
+            click_button('Clear Cart')
+        end
+    end
 end

@@ -207,7 +207,6 @@ class Database
         zipped = amount.values.zip(price.values)
         zipped.each do |item|
             sum += item[0] * item[1]
-            # change amount, amount from cart_items stands for the total amount of items not the ones in a cart
         end
         sum
     end

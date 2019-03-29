@@ -1,5 +1,6 @@
 link rel="stylesheet" href="/css/cart.css"
 link rel="stylesheet" href="/css/index.css"
+script src="/js/cart.js"
 
 h1 Cart
 
@@ -9,7 +10,7 @@ h1 Cart
             button.confirm Back
         form action="/account/logout" method="post"
             button.confirm Logout
-        button.confirm Clear Cart
+        button.confirm onclick="clearCart()" Clear Cart
         button.confirm Checkout
 .shop
     h3#items Items

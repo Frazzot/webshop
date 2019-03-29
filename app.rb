@@ -76,12 +76,15 @@ class App < Sinatra::Base
         game_id = params['id'].to_i
         Database.add_to_cart(@current_user.id, game_id)
     end
+
+    post '/account/clearCart/' do
+        Database.clear_cart(@current_user.id)
+    end
      
 end
 
 #TODO
-#   add + and - near the amount so the user can remove and add separate items from the cart
-#   Add buttons to clear the cart
+#   Automatically reload html after clearing cart
 #   create system so that if the item is not in stock it will be shown as unavailable
 #   error message at login if password or username is incorrect
 #   Move map to a separate function 
