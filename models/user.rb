@@ -13,13 +13,20 @@ class User
         User.new('id' => nil, 'username' => "")
     end
    
-    #def self.get(hash) 
-    #    if hash.keys.first == :id
-    #        result = db.execute("SELECT * FROM users WHERE id = ?", hash[:id])
-    #    else
-    #    
-    #    end
-    #    self.new(result)
-    #end  
+    def self.create_user(username, phone, mail, password)
+        Database.execute('INSERT INTO users (username, phone, mail, password) VALUES (?, ?, ?, ?)', 
+        [username, phone, mail, password])
+    end
 
+    def self.get_user(identifier)
+        # Try to convert identifier to a numerical id
+        id = identifier.to_i
+        # If  this failed it will become 0, therefore it's a username, not an id
+        if id == 0
+            result = Database.execute('SELECT * FROM users WHERE username = ?', identifier)[0]
+            User.new(result)
+        else
+            User.new(Database.execute('SELECT * FROM users WHERE id = ?', id)[0])
+        end
+    end
 end
