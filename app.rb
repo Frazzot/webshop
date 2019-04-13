@@ -87,10 +87,9 @@ class App < Sinatra::Base
 end
 
 #TODO
-#   Refactor code - move to models etc
-#   case in Database.clear_tables
+#   Generate sql code
+#   Add flash
 #   Automatically reload html after clearing cart
 #   create system so that if the item is not in stock it will be shown as unavailable
 #   error message at login if password or username is incorrect
 #   Move map to a separate function 
-#   change names in category.rb 

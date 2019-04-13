@@ -1,9 +1,9 @@
 class Category
     attr_reader :name
 
-    def initialize(user_hash)
-       @id = user_hash['id'] 
-       @name = user_hash['name']
+    def initialize(category_hash)
+       @id = category_hash['id'] 
+       @name = category_hash['name']
     end
     
     def self.get_category(identifier)
