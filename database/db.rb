@@ -36,7 +36,9 @@ class Database
         execute('CREATE TABLE carts (user_id INTEGER NOT NULL, 
                  item_id INTEGER NOT NULL,
                  FOREIGN KEY(user_id) REFERENCES users(id),
-                 FOREIGN KEY(item_id) REFERENCES items(id))')
+                 FOREIGN KEY(item_id) REFERENCES items(id)
+                 cart_amount INTEGER)')
+
 
         execute('DROP TABLE IF EXISTS order_lines')
         execute('CREATE TABLE order_lines (amount INTEGER,
@@ -87,8 +89,10 @@ class Database
             execute('DROP TABLE IF EXISTS carts')
             execute('CREATE TABLE carts (user_id INTEGER NOT NULL, 
                      item_id INTEGER NOT NULL,
+                     cart_amount INTEGER,
                      FOREIGN KEY(user_id) REFERENCES users(id),
                      FOREIGN KEY(item_id) REFERENCES items(id))')
+                    
         
         when "order_lines"
             execute('DROP TABLE IF EXISTS order_lines')
@@ -116,4 +120,5 @@ class Database
                      FOREIGN KEY(item_id) REFERENCES items(id))')
         end
     end
+
 end

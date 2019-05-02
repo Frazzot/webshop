@@ -8,6 +8,7 @@ class App < Sinatra::Base
     before do
         if session[:user_id]
             @current_user = User.get_user(session[:user_id])
+            #@user_id = 
         else
             @current_user = User.null_user
         end
@@ -55,17 +56,10 @@ class App < Sinatra::Base
     end
 
     get '/account/cart' do
-        p @current_user.id
-        @carts = Cart.get_cart(@current_user.id)
         @cart_items = Cart.get_items_in_cart(@current_user.id)
+        @cart_amount_hash = Cart.create_game_hash(@cart_items)
+        @price_hash = Cart.create_price_hash(@cart_items)
 
-        # freq hash games in cart
-        @cart_amount_hash = Hash.new(0)
-        @price_hash = Hash.new
-        @cart_items.each do |item| 
-            @cart_amount_hash[item["name"]] += 1
-            @price_hash[item["name"]] = item["price"]
-        end
         @sum = Cart.sum_cart_value(@cart_amount_hash, @price_hash)
         slim :cart
     end 
@@ -83,13 +77,20 @@ class App < Sinatra::Base
     post '/account/clearCart/' do
         Cart.clear_cart(@current_user.id)
     end
+
+    post '/account/removeItem/:index' do
+        name_hash = JSON.parse(request.body.read)
+        current_game_id = Cart.extract_game_id(name_hash)
+        Cart.remove_item(@current_user.id, current_game_id)
+    end
      
 end
 
 #TODO
+#   Update price in slim file when removing items
+#   Add looks empty here text when cart is empty from removing separet items
 #   Generate sql code
+#   LineItem - not todo
 #   Add flash
-#   Automatically reload html after clearing cart
-#   create system so that if the item is not in stock it will be shown as unavailable
 #   error message at login if password or username is incorrect
-#   Move map to a separate function 
+#   Move map and hash to a separate function 

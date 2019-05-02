@@ -17,10 +17,13 @@ h1 Cart
     div.separator
     - if @cart_items.length == 0;
         p Looks empty here!
+    - i = 0
     - for item in @cart_amount_hash.keys
         div.itemContainer
-            p =item
+            p id="name_#{i}" =item
             p class="amount" =@cart_amount_hash[item]
             p class="price" ="#{@price_hash[item]} kr"
+            p class="decrement" onclick="removeFromCart(#{i})" -
             div.separator
+            - i += 1
     p class="price" id="total" ="Total: #{@sum} kr"  
