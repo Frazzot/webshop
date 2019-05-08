@@ -91,6 +91,6 @@ end
 #   Add looks empty here text when cart is empty from removing separet items
 #   Generate sql code
 #   LineItem - not todo
-#   Add flash
+#   Flash
 #   error message at login if password or username is incorrect
 #   Move map and hash to a separate function 

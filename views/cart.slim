@@ -16,7 +16,7 @@ h1 Cart
     h3#items Items
     div.separator
     - if @cart_items.length == 0;
-        p Looks empty here!
+        p id="clearEmpty" Looks empty here!
     - i = 0
     - for item in @cart_amount_hash.keys
         div.itemContainer
